@@ -1,0 +1,113 @@
+﻿<Page x:Class="MindWord.Desktop.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MindWord.Desktop.Pages"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      FontFamily="JetBrains Mono"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage" 
+      Loaded="Page_Loaded">
+
+    <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <lvc:PieChart x:Name="circleCharts"  LegendLocation="Bottom" Foreground="{DynamicResource SecundaryTextColor}">
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}"/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0">
+                                <lvc:CartesianChart.DataTooltip>
+                                    <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}" Foreground="{DynamicResource SecundaryTextColor}"/>
+                                </lvc:CartesianChart.DataTooltip>
+
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Foreground="{DynamicResource SecundaryTextColor}" ShowLabels="True">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0" Step="1"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Foreground="{DynamicResource SecundaryTextColor}" ShowLabels="True" MinValue="0" MaxValue="30">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+
+                                <lvc:CartesianChart.Series>
+                                    <lvc:StackedColumnSeries Fill="#7166f9" MaxColumnWidth="15" Values="11, 13, 17, 20, 17, 15, 16, 13"/>
+                                    <lvc:StackedColumnSeries Fill="#101a28" MaxColumnWidth="15" Values="6, 5, 6, 4, 6, 6, 7, 6"/>
+                                </lvc:CartesianChart.Series>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <lvc:CartesianChart  Series="{Binding SeriesCollection}" LegendLocation="Bottom"  Foreground="{DynamicResource SecundaryTextColor}">
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="{DynamicResource TertiaryBackgroundColor}"/>
+                            </lvc:CartesianChart.DataTooltip>
+                        </lvc:CartesianChart>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

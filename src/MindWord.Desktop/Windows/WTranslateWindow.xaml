@@ -1,0 +1,101 @@
+﻿<Window x:Class="MindWord.Desktop.Windows.WTranslateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindWord.Desktop.Windows"
+        mc:Ignorable="d"
+        MouseDown="mouse"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" 
+        Title="WTranslateWindow" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent"
+        Height="580" Width="930"
+        Loaded="Window_Loaded">
+    <Border CornerRadius="8" BorderThickness="2" BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            Background="{DynamicResource TertiaryBackgroundColor}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition/>
+                <RowDefinition Height="80"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                </StackPanel>
+            </Grid>
+
+
+            <StackPanel Grid.Row="1" 
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Label
+                   x:Name="lbRandomWord"
+                   Content="Translate bo'yicha"
+                   Foreground="{DynamicResource SecundaryTextColor}"
+                   FontSize="25">
+
+                </Label>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                        <Button Width="300"
+                                x:Name="aBtn"
+                                Style="{DynamicResource BtnGameTest}" Click="aBtn_Click">
+                        </Button>
+
+                        <Button Width="300"
+                                Margin="0 30 0 0"
+                                x:Name="bBtn"
+                                Style="{DynamicResource BtnGameTest}" Click="bBtn_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="top">
+                        <Button Width="300"
+                                x:Name="cBtn"
+                                Style="{DynamicResource BtnGameTest}" Click="cBtn_Click">
+                        </Button>
+
+                        <Button Width="300"
+                                Margin="0 30 0 0"
+                                x:Name="dBtn"
+                                Style="{DynamicResource BtnGameTest}" Click="dBtn_Click">
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Label x:Name="lbPage"
+                       FontFamily="JetBrains Mono"
+                       FontSize="18"
+                       Content="1/10"
+                       Foreground="{DynamicResource SecundaryTextColor}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                </Label>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
+

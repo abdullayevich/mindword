@@ -1,0 +1,136 @@
+﻿<Page x:Class="MindWord.Desktop.Pages.SettingsPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MindWord.Desktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SettingsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="10">
+
+            <Grid Grid.Row="0"
+                Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+
+                    <Label Content="Image download"
+                           FontFamily="Jetbrains Mono"
+                           HorizontalAlignment="Center"
+                           FontSize="20"
+                           Foreground="{DynamicResource SecundaryTextColor}" Margin="0,0,0,257">
+
+                    </Label>
+                    <StackPanel VerticalAlignment="Center">
+
+                        <Image x:Name="imagePicture" Stretch="Uniform"
+                           Width="200"
+                           Height="200"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
+
+
+                        </Image>
+                    </StackPanel>
+                    
+                    <Button Height="200" Width="200"
+                            Margin="0 40"
+                            FontFamily="Jetbrains Mono" 
+                            BorderThickness="0"
+                            Foreground="{DynamicResource SecundaryTextColor}"
+                            Background="Transparent"
+                            Click="btnImage_Click">
+
+                    </Button>
+
+                   
+
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center" 
+                            Width="300">
+                    <TextBox x:Name="txFullNameUpdate"
+                             FontFamily="Jetbrains Mono"
+                         
+                             materialDesign:HintAssist.Hint="Full Name"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{DynamicResource SecundaryTextColor}"
+                             Background="{DynamicResource TertiaryBackgroundColor}">
+                    </TextBox>
+
+                    <TextBox x:Name="txEmailUpdate"
+                             Margin="0 35 0 0"
+                             FontFamily="Jetbrains Mono"
+                             materialDesign:HintAssist.Hint="Email"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{DynamicResource SecundaryTextColor}"
+                             Background="{DynamicResource TertiaryBackgroundColor}" TextChanged="txEmailUpdate_TextChanged"
+                             >
+                    </TextBox>
+
+                    <Label   x:Name="LbEmailUpdate" Content=""
+                             FontFamily="Jetbrains Mono"
+                             Foreground="#E13E4E"
+                             FontSize="10"
+                             FontWeight="Medium" 
+                             HorizontalAlignment="Left"
+                             Margin="0 10"
+                            />
+
+                    <PasswordBox x:Name="txPasswordUpdate"
+                                 FontFamily="Jetbrains Mono"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Foreground="{DynamicResource SecundaryTextColor}"
+                                 Background="{DynamicResource TertiaryBackgroundColor}"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                 PasswordChanged="PasswordTextchanged">
+
+                    </PasswordBox>
+                    
+                    <Label   x:Name="LbPasswordUpdate" Content=""
+                             FontFamily="Jetbrains Mono"
+                             Foreground="#E13E4E"
+                             FontSize="10"
+                             FontWeight="Medium" 
+                             HorizontalAlignment="Left"
+                             Margin="0 10"
+                            />
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="btnUserUpdate"
+                    Width="300"
+                    Height="40"
+                    Content="UPDATE"
+                    FontSize="18"
+                    FontFamily="Jetbrains Mono"
+                    Background="{DynamicResource SecundaryBlueColor}"
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Click="BtnUpdate_click">
+                    
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

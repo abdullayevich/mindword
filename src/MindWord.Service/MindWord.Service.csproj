@@ -7,13 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Cmmon\**" />
+    <EmbeddedResource Remove="Cmmon\**" />
+    <None Remove="Cmmon\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MindWord.DataAccess\MindWord.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="PagedList" Version="1.17.0" />
   </ItemGroup>
 
 </Project>

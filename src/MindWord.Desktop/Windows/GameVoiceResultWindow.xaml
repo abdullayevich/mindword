@@ -1,0 +1,134 @@
+﻿<Window x:Class="MindWord.Desktop.Windows.GameVoiceResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindWord.Desktop.Windows"
+        mc:Ignorable="d"
+        MouseDown="mouse"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        Title="GameResultWindow" Height="500" Width="800">
+
+    <Border CornerRadius="8" BorderThickness="2" BorderBrush="{DynamicResource PrimaryBackgroundColor}" Background="{DynamicResource TertiaryBackgroundColor}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0 5 5 0">
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                </StackPanel>
+            </Grid>
+
+            <DataGrid Grid.Row="1"
+                  Name="dgData"
+                  FontSize="15"
+                  Foreground="{DynamicResource SecundaryTextColor}"
+                  FontFamily="Jetbrains Mono"
+                  AutoGenerateColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  IsReadOnly="True"
+                  CanUserReorderColumns="False"
+                  Background="{DynamicResource SecundaryBackgroundColor}"
+                  TextElement.Foreground="{DynamicResource SecundaryTextColor}"
+                  Loaded="DataGrid_Loaded" SelectionChanged="dgData_SelectionChanged">
+                <DataGrid.Columns>
+                    
+                    <DataGridTextColumn Header="Id"
+                                        Width="70"
+                                        Binding="{Binding Id}"/>
+
+                    <!--Voice-->
+                    <DataGridTemplateColumn  Header="Voice"
+                                             Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="btinfo"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="Listen"
+                                            Click="BtnInfo_click">
+                                        Voice
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn Header="Translate"
+                                        Width="5*"
+                                        Binding="{Binding Translate}"/>
+                    <DataGridTextColumn Header="Answer"
+                                        Width="5*"
+                                        Binding="{Binding Answer}"/>
+
+                    <!--Status-->
+                    <DataGridTemplateColumn Header="Status"
+                                            Width="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="8" 
+                                        Height="30"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Padding="10 5">
+                                    <TextBlock Foreground="White" 
+                                               Text="{Binding Status}"
+                                               FontSize="12"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               FontWeight="SemiBold"/>
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="✔️">
+                                                    <Setter Property="Background" Value="#50C878" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="❌">
+                                                    <Setter Property="Background" Value="#ED624D" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="1" Margin="15,5,10,0" CornerRadius="0 0 5 0" Background="Transparent">
+                    <Label x:Name="lbResultgame"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="{DynamicResource SecundaryTextColor}"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           FontFamily="JetBrains Mono">
+                    </Label>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
